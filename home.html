@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout con Columnas y Bordess</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <p>x</p>
+        <script language="javascript">
+            var dt = new Date();
+            var hr = dt.getHours();
+            var saludo = (hr < 12) ? "Buenos días." : (hr < 18) ? "Buenas tardes." : "Buenas noches.";
+            var horaSaludo = (hr < 12) ? "Hoy es:" : "Es:";
+            var fecha = obtieneFecha();
+            var mensaje = `<h2>${saludo} ${horaSaludo} ${fecha}</h2>`;
+            document.write(mensaje);
+
+            function obtieneFecha() {
+                var fecha_actual = new Date();
+                var dia = ("0" + fecha_actual.getDate()).slice(-2);
+                var mes = ("0" + (fecha_actual.getMonth() + 1)).slice(-2);
+                var anio = fecha_actual.getFullYear();
+                return `${dia}/${mes}/${anio}`;
+            }
+        </script>
+        <div class="container">
+            <table class="rel">
+                <tr>
+                    <td>
+                        <img src="dg1.gif" name="hr1" alt="#">
+                        <img src="dg2.png" name="hr2" alt="#">
+                        <img src="100w.gif" name="c" alt="#">
+                        <img src="dg8.gif" name="mn1" alt="#">
+                        <img src="dg3.gif" name="mn2" alt="#">
+                        <img src="100w.gif" name="c" alt="#">
+                        <img src="dg4.gif" name="se1" alt="#">
+                        <img src="dg5.gif" name="se2" alt="#">
+                        <img src="dgpm.gif" name="ampm" alt="#">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var images = [];
+            for (var i = 0; i < 10; i++) {
+                images[i] = new Image();
+                images[i].src = "dg" + i + ".png";
+            }
+            images["am"] = new Image();
+            images["am"].src = "dgam.gif";
+            images["pm"] = new Image();
+            images["pm"].src = "dgpm.gif";
+
+            function updateTime() {
+                var d = new Date();
+                var hr = d.getHours();
+                var mn = d.getMinutes();
+                var se = d.getSeconds();
+                var am_pm = (hr < 12) ? "am" : "pm";
+                if (hr == 0) {
+                    hr = 12;
+                } else if (hr > 12) {
+                    hr -= 12;
+                }
+                var digits = [Math.floor(hr / 10), hr % 10, Math.floor(mn / 10), mn % 10, Math.floor(se / 10), se % 10];
+                document.hr1.src = images[digits[0]].src;
+                document.hr2.src = images[digits[1]].src;
+                document.mn1.src = images[digits[2]].src;
+                document.mn2.src = images[digits[3]].src;
+                document.se1.src = images[digits[4]].src;
+                document.se2.src = images[digits[5]].src;
+                document.ampm.src = images[am_pm].src;
+                setTimeout(updateTime, 1000);
+            }
+            updateTime();
+        </script>
+        <FORM name="Reloj">
+            </table>
+            <h1>Pulsa cualquier link para continuar</h1>
+    </header>
+
+    <div class="container">
+        <div class="left-column">
+        </div>
+        <div class="content">
+            <!-- Contenido central -->
+            <h2>Links</h2>
+            <a href="https://www.icloud.com/mail/" rel="noopener">
+                <IMG SRC="https://cdn.icon-icons.com/icons2/3874/PNG/96/apple_icon_244913.png" alt="#"></a>
+
+            <a href="http://www.google.es/" rel="noopener">
+                <IMG SRC="https://cdn.icon-icons.com/icons2/3874/PNG/96/google_icon_244911.png" alt="#"></a>
+        
+            <a href="https://www.youtube.com/" rel="noopener">
+                <IMG SRC="https://cdn.icon-icons.com/icons2/3874/PNG/96/youtube_icon_244929.png" alt="#"></a>
+                    <a href="http://www.hotmail.com/" rel="noopener">
+                        <IMG SRC="https://cdn.icon-icons.com/icons2/2148/PNG/96/microsoft_outlook_icon_132208.png" alt="#"></a>
+                     
+            
+
+            <a href="https://twitter.com/" rel="noopener">
+                <IMG SRC="https://cdn.icon-icons.com/icons2/694/PNG/96/Twitter_Rounded_icon-icons.com_61577.png" alt="#"></a>
+                
+            <a href="https://chatgpt.com/" rel="noopener">
+                <IMG SRC="https://cdn.icon-icons.com/icons2/4147/PNG/96/networks_artificial_intelligence_ai_machine_learning_icon_261218.png" alt="#"></a>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br><br>
+            <br>
+            <br>
+            <br>
+            <br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+                </div>
+        <div class="right-column">
+            
+        </div>
+    </div>
+
+    <footer>
+        <h3>Pagina de links de inicio</h3>
+    </footer>
+</body>
+
+</html>
